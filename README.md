@@ -261,3 +261,6 @@ The macros used are the following:
 - `RUN_TESTS` is a macro that will run all the tests and print the results. it expands to a main. Usage: `RUN_TESTS(all_tests);` It expects a function that returns a const char* and will run all the tests in that function. If the function returns NULL, all the tests pass.
 
 I hope this helps you write your own tests.
+
+## thanks
+Special thanks to Zed Shaw for the inspiration. Some of the macros and ideas are found in "Learn C the Hard Way" chapter 30 - "Automated Testing". Great book!
