@@ -1,5 +1,7 @@
 # RazorClams
-Writing a razor fast suite of tests for my C++ student assignments 
+Writing a razor fast suite of tests for my C++ student assignments. 
+
+⚠️ This is intentionally simple code as a learning opportunity and will be used for smaller program, it is not intended to be a fully fledged test suite! ⚠	
 
 
 There is a lot to be learned by writing your own tests.  
@@ -267,6 +269,12 @@ The str() function of std::stringstream returns a string object with a copy of t
 
 On the other hand, c_str() is a function that returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.  
 
-I suggest to download the repo and try it out. run make and make tests in the example folder. The tests are very fast and will stop only if there is an error. You can add as many files and tests as you want in both the SUT and the partx_tests.cpp files.
+I suggest to download the repo and try it out. run make and make tests in the example folder. The tests are very fast and will stop only if there is an error. You can add as many files and tests as you want in both the SUT and the `partx_tests.cpp` files.
+
+The macros used are the following:
+- `debug` will print to the log file. Usage `debug("message %d", 42);`
+- 'my_assert' will check a condition and return an error message if it fails. Usage `my_assert(condition, "error message");`
+- `run_test` will run a test function and return the error message if it fails. Usage `run_test(test_example);` It expects a function that returns a const char*. If the function returns NULL, the test passes.
+- `RUN_TESTS` is a macro that will run all the tests and print the results. it expands to a main. Usage: `RUN_TESTS(all_tests);` It expects a function that returns a const char* and will run all the tests in that function. If the function returns NULL, all the tests pass.
 
 I hope this helps you write your own tests.
