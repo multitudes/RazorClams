@@ -25,9 +25,7 @@ This is my megaphone.cpp file.
 ```cpp
 #include <iostream>
 #include "megaphone.hpp"
-/*
-I use std::cout because I am not allowed to use namespaces in this module
-*/
+
 int megaphone(int argc, char **argv)
 {
 	if (argc > 1)
