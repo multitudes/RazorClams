@@ -1,7 +1,7 @@
 # RazorClams
 Writing a razor fast suite of tests for my C++ student assignments. 
 
-⚠️ This is intentionally simple code as a learning opportunity and will be used for smaller program, it is not intended to be a fully fledged test suite! ⚠	
+⚠️ This is intentionally simple code as a learning opportunity and will be used for smaller program, it is not intended to be a fully fledged test suite! ⚠️	
 
 
 There is a lot to be learned by writing your own tests.  
