@@ -64,7 +64,8 @@ int megaphone(int argc, char **argv);
 
 #endif
 ```
-This is my makefile.
+This is my makefile to compile `megaphone`
+
 ```makefile
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
