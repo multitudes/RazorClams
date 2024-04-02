@@ -5,21 +5,28 @@ Writing a razor fast suite of tests for my C++ student assignments.
 
 
 There is a lot to be learned by writing your own tests.  
-- handle redirections.  
+- handle redirections, for example I wnt to read what is being printed to the console.  
 - write debug messages to a log.txt file.  
-- integrate the tests in the makefile for a semi continuous integration.
-- be more confident in changing and updating functions in a large codebase knowing that you did not break anything (if you wrote the tests correctly)
+- integrate the tests in the main makefile for a semi continuous integration.
+- when coding be more confident in changing and updating functions in a large codebase, knowing that I did not break anything (if I wrote the tests correctly)
 - Write edgy test cases.
 - Try some TDD or test driven development...
 
-The main idea is that running make in development will trigger the tests everytime.  This can be modified to run the tests with a `make tests` instead.
+To add the tests modifying the existing makefile in the existing project with:
+```
+tests:
+	make -C tests
+```
+and copy the tests folder into the root...
+
+The main idea is that running `make` in development will trigger the tests everytime.  This can be modified to run the tests with a `make tests` instead.
 I will show how this all comes together. 
 
 ## A very easy example
 
 SUT or system under test is our program.  
-To simplify things, I will use a simple program that takes a string and prints the uppercased string to the console.
-The program is called megaphone.
+To simplify things, I will use a simple example of a function that takes a string and prints the uppercased string to the console.
+The program is called megaphone. (eh!)
 
 This is my megaphone.cpp file.
 ```cpp
