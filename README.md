@@ -1,7 +1,7 @@
 # RazorClams
 Writing a razor fast suite of tests for my C++ student assignments. 
 
-⚠️ This is intentionally simple code as a learning opportunity and will be used for smaller program, it is not intended to be a fully fledged test suite! ⚠	
+⚠️ This is intentionally simple code as a learning opportunity and will be used for smaller program, it is not intended to be a fully fledged test suite! ⚠️	
 
 
 There is a lot to be learned by writing your own tests.  
@@ -25,9 +25,7 @@ This is my megaphone.cpp file.
 ```cpp
 #include <iostream>
 #include "megaphone.hpp"
-/*
-I use std::cout because I am not allowed to use namespaces in this module
-*/
+
 int megaphone(int argc, char **argv)
 {
 	if (argc > 1)
@@ -66,7 +64,8 @@ int megaphone(int argc, char **argv);
 
 #endif
 ```
-This is my makefile.
+This is my makefile to compile `megaphone`
+
 ```makefile
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
@@ -148,27 +147,12 @@ $(TESTS): $(SUT_OBJS) $(TEST_SRCS)
 runtests:
 	sh ./runtests.sh
 
-# ending in ~ are sometimes VIM files
 clean:
-	@echo ""
-	@echo "==================\ncleaning all object files and log"
 	rm -f *.o
 	rm -f tests.log
-	find  .  -name ".*~" -delete -print
-	$(CLEAN_MAC)
-
-# mac sometimes adds these files expecially in Xcode. 
-ifeq ($(shell uname),Darwin)
-CLEAN_MAC = rm -rf `find . -name "*.dSYM" -print`
-else
-CLEAN_MAC = 
-endif
 
 fclean: clean
-	@echo
-	@echo "==================\ncleaning all test files and executables"
 	rm -rf $(TESTS)
-	@echo 
 
 re: fclean tests
 
@@ -278,3 +262,6 @@ The macros used are the following:
 - `RUN_TESTS` is a macro that will run all the tests and print the results. it expands to a main. Usage: `RUN_TESTS(all_tests);` It expects a function that returns a const char* and will run all the tests in that function. If the function returns NULL, all the tests pass.
 
 I hope this helps you write your own tests.
+
+## thanks
+Special thanks to Zed Shaw for the inspiration. Some of the macros and ideas are found in "Learn C the Hard Way" chapter 30 - "Automated Testing". Great book!
