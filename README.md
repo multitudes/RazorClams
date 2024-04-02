@@ -146,27 +146,12 @@ $(TESTS): $(SUT_OBJS) $(TEST_SRCS)
 runtests:
 	sh ./runtests.sh
 
-# ending in ~ are sometimes VIM files
 clean:
-	@echo ""
-	@echo "==================\ncleaning all object files and log"
 	rm -f *.o
 	rm -f tests.log
-	find  .  -name ".*~" -delete -print
-	$(CLEAN_MAC)
-
-# mac sometimes adds these files expecially in Xcode. 
-ifeq ($(shell uname),Darwin)
-CLEAN_MAC = rm -rf `find . -name "*.dSYM" -print`
-else
-CLEAN_MAC = 
-endif
 
 fclean: clean
-	@echo
-	@echo "==================\ncleaning all test files and executables"
 	rm -rf $(TESTS)
-	@echo 
 
 re: fclean tests
 
