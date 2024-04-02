@@ -58,9 +58,10 @@ The header file is just a declaration of the function.
 
 ```cpp
 #ifndef MEGAPHONE_HPP
-#define MEGAPHONE_HPP
+# define MEGAPHONE_HPP
 
 int megaphone(int argc, char **argv);
+
 #endif
 ```
 This is my makefile.
@@ -99,6 +100,7 @@ $ make
 c++ -Wall -Wextra -Werror -std=c++98   -c -o megaphone.o megaphone.cpp
 c++ -Wall -Wextra -Werror -std=c++98   -c -o main.o main.cpp
 c++ -o megaphone megaphone.o main.o
+
 $ ./megaphone "Hello, World!"
 HELLO, WORLD!
 ```
