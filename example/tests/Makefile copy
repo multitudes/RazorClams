@@ -1,0 +1,43 @@
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS += -Wno-shadow
+CXX = c++
+
+TESTS = megaphone_tests
+
+# SRCS = ../megaphone.cpp
+# OBJS = $(SRCS:.cpp=.o)
+
+TEST_SRC= ../megaphone.cpp part1_tests.cpp 
+TESTS_OBJS = $(TEST_SRC:.cpp=.o)
+
+# the target build
+all: $(TESTS)
+
+$(TESTS): $(TESTS_OBJS) 
+	$(CXX) $(CXXFLAGS) -o $@ $(TESTS_OBJS) 
+	sh ./runtests.sh
+
+clean:
+	@echo ""
+	@echo "==================\ncleaning all test files and executables"
+	rm -rf tmp $(TESTS)
+	rm -f *.o
+	rm -f tests.log
+	rm -rf `find . -name "*.dSYM" -print`
+	find  .  -name ".*~" -delete -print
+	rm -Rf tmp
+	rm -f a.out
+
+fclean: clean
+	@echo
+	@echo "======Already f clean============\n"
+
+re: fclean tests
+
+.PHONY: tests 
+
+#will not work on mac
+valgrind:
+	@echo
+	@echo "==================\nLaunching valgrind..."
+	VALGRIND="valgrind --log-file=/tmp/valgrind-%p.log" $(MAKE)
