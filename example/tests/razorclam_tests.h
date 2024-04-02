@@ -1,5 +1,5 @@
-#ifndef __dolphin_tests_h__
-# define __dolphin_tests_h__
+#ifndef __razorclam_tests_h__
+# define __razorclam_tests_h__
 
 # include <iostream>
 # include <string>
