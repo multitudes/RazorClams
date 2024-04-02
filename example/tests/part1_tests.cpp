@@ -48,7 +48,7 @@ const char *test_megaphone_loud(){
 
 	// check if the output is as expected
 	std::string expectedOutput = "HELLO\n";
-	//my_assert(output.str().c_str() == expectedOutput, "should be : HELLO");
+	// these are c string so I use strcmp or strncmp etc
 	my_assert(strcmp(output.str().c_str(), expectedOutput.c_str()) == 0, "should be : HELLO");
 	
 	/*
