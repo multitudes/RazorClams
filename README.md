@@ -3,6 +3,10 @@ Writing a razor fast suite of tests for my C++ student assignments.
 
 ⚠️ This is intentionally simple code as a learning opportunity and will be used for smaller program, it is not intended to be a fully fledged test suite! ⚠️	
 
+What I really like about this test suite is that it is fast. It runs the tests and notify only when there is a test failing. It is easy to output debug messages to a log file as well.
+
+
+
 
 There is a lot to be learned by writing your own tests.  
 - handle redirections, for example I wnt to read what is being printed to the console.  
