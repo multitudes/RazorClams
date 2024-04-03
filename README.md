@@ -1,5 +1,5 @@
 # RazorClams
-Writing a razor fast suite of tests for my C++ student assignments. 
+Writing a razor fast suite of tests for my C++ student assignments. (I made a folder called tests_c for with the c version)
 
 ⚠️ This is intentionally simple code as a learning opportunity and will be used for smaller program, it is not intended to be a fully fledged test suite! ⚠️	
 
