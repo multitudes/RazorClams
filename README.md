@@ -3,10 +3,8 @@ Writing a razor fast suite of tests for my C++ student assignments. (I made a fo
 
 ⚠️ This is intentionally simple code as a learning opportunity and will be used for smaller program, it is not intended to be a fully fledged test suite! ⚠️	
 
-What I really like about this test suite is that it is fast. It runs the tests and notify only when there is a test failing. It is easy to output debug messages to a log file as well.
-
-
-
+What I really like about this test suite is that it is fast. It runs the tests and I get notified only when there is a test failing.  
+It is easy to output debug messages to a log file as well. 
 
 There is a lot to be learned by writing your own tests.  
 - handle redirections, for example I wnt to read what is being printed to the console.  
@@ -125,9 +123,10 @@ To do so I will copy my tests folder in the root of my project.
 The tests folder contains the following files.  
 - a makefile to compile the tests into executables
 - a runtests.sh script to run the tests executables
- - a part1_tests.cpp file that contains the tests. The name can be changed to whatever you want but it has to end with `_tests.cpp`. More than one file can be created like a part2_tests.cpp file etc. Each file will be compiled into an executable called `part1_tests`, `part2_tests` etc. the script will run all the tests executables.
- - a razorclams.hpp file that contains the test macros like the `my_assert` and `debug` macros.
- - eventually a log file will be produced by the tests.
+- a part1_tests.cpp file that contains the tests. The name can be changed to whatever you want but it has to end with `_tests.cpp`. More than one file can be created like a part2_tests.cpp file etc. Each file will be compiled into an executable called `part1_tests`, `part2_tests` etc. the script will run all the tests executables.
+- a razorclams.hpp file that contains the test macros like the `my_assert` and `debug` macros.
+- eventually a log file will be produced by the tests. A nice trick is to display the output of the logfile in a separate terminal window like `tail -f tests/tests.log > /dev/pts/4 &` where ` /dev/pts/4` is the device file in Linux that represents a pseudo-terminal (pty). You get it when you execute the command `tty` in the new window.  
+
 
 The makefile in the tests folder is the following.
 
@@ -262,7 +261,7 @@ const char *test_megaphone_loud(){
 In the code above, we redirect the output of the program to a stringstream object.
 The str() function of std::stringstream returns a string object with a copy of the current contents of the stream.  
 
-On the other hand, c_str() is a function that returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.  
+On the other hand, `c_str()` is a function that returns a pointer to an array that contains a null-terminated sequence of characters (i.e., a C-string) representing the current value of the string object.  
 
 I suggest to download the repo and try it out. run make and make tests in the example folder. The tests are very fast and will stop only if there is an error. You can add as many files and tests as you want in both the SUT and the `partx_tests.cpp` files.
 
