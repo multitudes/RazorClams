@@ -6,7 +6,7 @@ NAME = megaphone
 SRCS = megaphone.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-all: $(NAME) valgrind
+all: $(NAME) 
 
 $(NAME): $(OBJS)
 	$(CXX) $(CFLAGS) -o $@ $^
@@ -23,13 +23,3 @@ tests:
 	make -C tests
 
 .PHONY: all clean fclean re tests
-
-ifdef LINUX
-valgrind:
-	@echo
-	@echo "==================\nLaunching valgrind..."
-	VALGRIND="valgrind --log-file=/tmp/valgrind-%p.log" $(MAKE)
-else
-valgrind:
-	@echo "No valgrind on this system"
-endif
